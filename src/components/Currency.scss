@@ -1,0 +1,12 @@
+.Currency {
+  display: flex;
+  justify-content: space-evenly;
+  list-style: none;
+  margin: 0.5rem 0;
+  font-weight: 400;
+  font-size: 0.95rem;
+
+  li {
+    width: 20%;
+  }
+}

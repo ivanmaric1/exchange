@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import './index.scss';
 import ExchangeMaster2 from './ExchangeMaster2';
 
 ReactDOM.render(

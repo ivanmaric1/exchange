@@ -1,0 +1,32 @@
+.HomePage {
+  background: linear-gradient(to right, #8ad5e6, #d2e5ea);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Poppins', sans-serif;
+
+  &-container {
+    border: 5px solid #fff;
+    border-radius: 30px;
+    width: 80%;
+    height: 85%;
+    padding: 0 2rem;
+  }
+
+  &-content {
+    display: flex;
+    margin-top: 1rem;
+
+    &-action {
+      flex: 2;
+      padding: 1rem;
+    }
+    &-currency {
+      flex: 1;
+      padding: 1rem;
+      border: 5px solid #fff;
+      border-radius: 30px;
+    }
+  }
+}

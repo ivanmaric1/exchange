@@ -1,0 +1,35 @@
+.Menu {
+  box-sizing: border-box;
+  background-color: #fff;
+  width: 70%;
+  margin: 0 auto;
+  padding: 0 2rem;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  font-size: 1.2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &-logo {
+    height: 60px;
+    margin: 0.5rem;
+  }
+
+  ul {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    color: var(--grey-letter);
+    margin-top: 0;
+    padding: 0.5rem;
+
+    li {
+      margin: 0 2rem;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}
