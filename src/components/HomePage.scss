@@ -19,14 +19,26 @@
     margin-top: 1rem;
 
     &-action {
-      flex: 2;
-      padding: 1rem;
-    }
-    &-currency {
-      flex: 1;
+      flex: 3;
       padding: 1rem;
       border: 5px solid #fff;
       border-radius: 30px;
+      margin-right: 2rem;
+    }
+
+    &-total {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    &-currency {
+      flex: 2;
+      padding: 1rem;
+      border: 5px solid #fff;
+      border-radius: 30px;
+      margin-left: 2rem;
     }
   }
 }

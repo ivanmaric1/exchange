@@ -1,27 +1,50 @@
-import React from 'react';
+import React, { useState } from 'react';
 import CurrencyList from './CurrencyList';
 import Menu from './Menu';
+import HomeSection from './HomeSection';
+import BuySection from './BuySection';
+import SellSection from './SellSection';
+import Statistics from './Statistics';
+import Options from './Options';
+import Total from './Total';
+import Counter from './Counter';
+
 import './HomePage.scss';
 
 const HomePage = () => {
+  const [page, setPage] = useState('home');
+
+  const renderMainContent = () => {
+    let elementForRender = [];
+
+    if (page === 'home') {
+      elementForRender.push(<HomeSection />);
+    }
+    if (page === 'buy') {
+      elementForRender.push(<BuySection />);
+    }
+    if (page === 'sell') {
+      elementForRender.push(<SellSection />);
+    }
+    if (page === 'statistics') {
+      elementForRender.push(<Statistics />);
+    }
+    if (page === 'options') {
+      elementForRender.push(<Options />);
+    }
+
+    return elementForRender;
+  };
+
   return (
     <div className="HomePage">
       <div className="HomePage-container">
-        <Menu />
+        <Menu page={page} setPage={setPage} />
         <div className="HomePage-content">
-          <div className="HomePage-content-action">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            Blanditiis, nobis vero. Id repellat culpa est. Quae ipsam provident
-            delectus maxime! Et voluptas minus asperiores laboriosam laudantium,
-            ut tempora saepe, pariatur illum incidunt atque doloribus velit
-            omnis illo quo? Impedit velit sed nam id in, officia reiciendis
-            voluptatem delectus nostrum ab minima. Nisi possimus nostrum aut
-            rem, beatae doloremque praesentium inventore velit facere.
-            Laudantium voluptatibus amet non dignissimos rerum eius, omnis,
-            nihil velit exercitationem possimus adipisci voluptate, soluta
-            iusto! Quia cupiditate officia, cumque esse tempora mollitia
-            consectetur accusamus! Saepe, ab alias numquam quibusdam illo
-            nesciunt obcaecati voluptate reprehenderit fugit ut hic.
+          <div className="HomePage-content-action">{renderMainContent()}</div>
+          <div className="HomePage-content-total">
+            <Total />
+            <Counter />
           </div>
           <div className="HomePage-content-currency">
             <CurrencyList />

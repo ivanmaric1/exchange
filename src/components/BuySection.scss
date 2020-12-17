@@ -1,0 +1,46 @@
+.BuySection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  &-currencyList {
+    h2 {
+      text-align: center;
+    }
+    img {
+      height: 75px;
+      margin: 0.3rem;
+      cursor: pointer;
+
+      &:hover {
+        opacity: 0.9;
+        transform: scale(1.1);
+      }
+    }
+  }
+  &-amount {
+    input {
+      font-size: 2rem;
+      width: 300px;
+      padding: 0.5rem;
+      border: 3px solid #fff;
+    }
+
+    button {
+      box-sizing: border-box;
+      font-size: 2rem;
+      margin: 1rem;
+      padding: 0.5rem;
+      cursor: pointer;
+      background-color: #8ad5e6;
+      border: 3px solid #fff;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+
+    h2 {
+      text-align: center;
+    }
+  }
+}

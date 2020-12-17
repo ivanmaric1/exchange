@@ -5,6 +5,7 @@ import './CurrencyList.scss';
 
 const CurrencyList = () => {
   const [currencies, setCurrencies] = useState([]);
+
   useEffect(() => {
     axios
       .get(`https://cors-anywhere.herokuapp.com/https://api.hnb.hr/tecajn/v1`)
@@ -15,7 +16,11 @@ const CurrencyList = () => {
 
   return (
     <div className="CurrencyList">
-      <h4>Tečajna lista {currencies[0]['Datum primjene']}</h4>
+      <h4>
+        Tečajna lista{' '}
+        {currencies === undefined ? currencies[0]['Datum primjene'] : null}
+      </h4>
+
       <ul className="Currency">
         <li>Država</li>
         <li>Valuta</li>
@@ -23,6 +28,7 @@ const CurrencyList = () => {
         <li>Kupovni tečaj</li>
         <li>Prodajni tečaj</li>
       </ul>
+
       {currencies.map((item: any) => (
         <Currency
           država={item.Država}
