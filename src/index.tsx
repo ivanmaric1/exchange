@@ -1,10 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.scss';
+import { BrowserRouter } from 'react-router-dom';
 import ExchangeMaster2 from './ExchangeMaster2';
+import './index.scss';
 
 ReactDOM.render(
-  <ExchangeMaster2 />,
-
+  <BrowserRouter>
+    <ExchangeMaster2 />
+  </BrowserRouter>,
   document.getElementById('root')
 );

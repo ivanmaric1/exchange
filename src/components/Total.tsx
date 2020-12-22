@@ -1,16 +1,33 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './Total.scss';
 
-const Total = () => {
+interface Props {
+  total: any;
+}
+
+const Total: React.FC<Props> = ({ total }) => {
+  const [serverData, setServerData] = useState([]);
+  useEffect(() => {
+    setServerData(total);
+  }, [total]);
+
+  const renderServerTotal = () => {
+    let forRender = [];
+    const keys: any = Object.keys(serverData);
+    for (let i = 0; i < keys.length; i++) {
+      forRender.push(
+        <p>
+          {keys[i]} : {serverData[keys[i]]}
+        </p>
+      );
+    }
+    return forRender;
+  };
+
   return (
     <div className="Total">
-      <p>Total</p>
-      <p>HRK: 24580</p>
-      <p>EUR: 2480</p>
-      <p>BAM: 9680</p>
-      <p>USD: 562</p>
-      <p>CHF: 900</p>
-      <p>KM: 24580</p>
+      <h3>Total</h3>
+      <div className="Total-data">{renderServerTotal()}</div>
     </div>
   );
 };

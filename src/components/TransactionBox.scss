@@ -1,0 +1,66 @@
+.TransactionBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h2 {
+    text-align: center;
+  }
+
+  &-btn {
+    background-color: transparent;
+    border: none;
+
+    &:focus {
+      background-color: #d2e5ea;
+      outline: 3px solid #fff;
+    }
+  }
+
+  img {
+    height: 65px;
+    margin: 0.4rem;
+    cursor: pointer;
+    transition: all 0.3s;
+
+    &:hover {
+      opacity: 0.9;
+      transform: scale(1.1);
+    }
+  }
+
+  &-amount {
+    input {
+      font-size: 2rem;
+      width: 300px;
+      padding: 0.5rem;
+      border: 3px solid #d2e5ea;
+      background-color: #d2e5ea;
+    }
+
+    h2 {
+      text-align: center;
+    }
+  }
+
+  &-output {
+    color: #fff;
+    font-size: 2.2rem;
+    text-align: center;
+
+    button {
+      box-sizing: border-box;
+      font-size: 2rem;
+      margin: 1rem;
+      padding: 0.5rem;
+      cursor: pointer;
+      background-color: #8ad5e6;
+      border: 3px solid #fff;
+      transition: all 0.3s;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+}

@@ -1,0 +1,33 @@
+.HomeSection {
+  padding: 2rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &-description {
+    flex: 1;
+    font-size: 1rem;
+    padding: 1rem;
+  }
+
+  &-support {
+    display: flex;
+
+    &-left,
+    &-right {
+      flex: 1;
+    }
+
+    img {
+      height: 100px;
+      cursor: pointer;
+      transition: all 0.3s;
+
+      &:hover {
+        opacity: 0.9;
+        transform: scale(1.1);
+      }
+    }
+  }
+}

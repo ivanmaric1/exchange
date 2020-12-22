@@ -1,5 +1,20 @@
 .Total {
-  background-color: #fff;
+  border: 5px solid #fff;
   border-radius: 30px;
   padding: 1rem;
+  width: 300px;
+
+  h3 {
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+
+  &-data {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    p {
+      margin: 0.5rem;
+    }
+  }
 }

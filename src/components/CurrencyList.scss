@@ -1,6 +1,17 @@
 .CurrencyList {
-  overflow: hidden;
+  border: 5px solid #fff;
+  border-radius: 30px;
+  padding: 1rem;
+
+  &-container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
   h4 {
     text-align: center;
+    margin-top: 0;
   }
 }

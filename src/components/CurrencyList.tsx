@@ -1,43 +1,54 @@
 import React, { useState, useEffect } from 'react';
 import Currency from './Currency';
-import axios from 'axios';
+import Loader from './Loader';
 import './CurrencyList.scss';
 
-const CurrencyList = () => {
-  const [currencies, setCurrencies] = useState([]);
+interface Props {
+  currencyList: any;
+}
+
+const CurrencyList: React.FC<Props> = ({ currencyList }) => {
+  const [loadedData, setLoadedData] = useState(false);
 
   useEffect(() => {
-    axios
-      .get(`https://cors-anywhere.herokuapp.com/https://api.hnb.hr/tecajn/v1`)
-      .then((res) => {
-        setCurrencies(res.data);
-      });
-  }, []);
+    setLoadedData(true);
+  }, [currencyList]);
 
   return (
     <div className="CurrencyList">
-      <h4>
-        Tečajna lista{' '}
-        {currencies === undefined ? currencies[0]['Datum primjene'] : null}
-      </h4>
+      {!currencyList ? (
+        <div className="CurrencyList-container">
+          <Loader />
+        </div>
+      ) : (
+        <>
+          <h4>
+            Tečajna lista
+            {loadedData ? currencyList[0]['Datum primjene'] : null}
+          </h4>
 
-      <ul className="Currency">
-        <li>Država</li>
-        <li>Valuta</li>
-        <li>Jedinica</li>
-        <li>Kupovni tečaj</li>
-        <li>Prodajni tečaj</li>
-      </ul>
+          <ul className="Currency">
+            <li>Država</li>
+            <li>Valuta</li>
+            <li>Jedinica</li>
+            <li>Kupovni tečaj</li>
+            <li>Prodajni tečaj</li>
+          </ul>
 
-      {currencies.map((item: any) => (
-        <Currency
-          država={item.Država}
-          valuta={item.Valuta}
-          jedinica={item.Jedinica}
-          prodajni={item['Prodajni za devize']}
-          kupovni={item['Kupovni za devize']}
-        />
-      ))}
+          {currencyList
+            ? currencyList.map((item: any) => (
+                <Currency
+                  država={item.Država}
+                  valuta={item.Valuta}
+                  jedinica={item.Jedinica}
+                  prodajni={item['Prodajni za devize']}
+                  kupovni={item['Kupovni za devize']}
+                  key={item.Država}
+                />
+              ))
+            : null}
+        </>
+      )}
     </div>
   );
 };

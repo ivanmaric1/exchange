@@ -1,52 +1,100 @@
-import React from 'react';
-
-import australia from '../img/Currencies/Australia.png';
-import canada from '../img/Currencies/Canada.png';
-import czech from '../img/Currencies/Czech.png';
-import danish from '../img/Currencies/Danish.png';
-import hungarian from '../img/Currencies/Hungarian.png';
-import japan from '../img/Currencies/Japan.png';
-import norway from '../img/Currencies/Norway.png';
-import sweden from '../img/Currencies/Sweden.png';
-import switzerland from '../img/Currencies/Switzerland.png';
-import uk from '../img/Currencies/Uk.png';
-import usd from '../img/Currencies/Usd.png';
-import bosnia from '../img/Currencies/Bosnia.png';
-import eu from '../img/Currencies/Eu.png';
-import poland from '../img/Currencies/Poland.png';
+import React, { useState, useEffect } from 'react';
+import CurrencyList from './CurrencyList';
+import Total from './Total';
+import Counter from './Counter';
+import TransactionBox from './TransactionBox';
+import axios from 'axios';
+import fire from './fire';
 import './BuySection.scss';
 
 const BuySection = () => {
+  const totalRef = fire.database().ref('/total');
+  const [dataBaseKey, setDataBaseKey] = useState('');
+  const [dataBaseData, setDataBaseData] = useState('');
+  const [currencyList, setCurrencyList] = useState('');
+  const [currency, setCurrency] = useState({
+    audBuy: '',
+    cadBuy: '',
+    czkBuy: '',
+    dkkBuy: '',
+    hufBuy: '',
+    jpyBuy: '',
+    nokBuy: '',
+    sekBuy: '',
+    chfBuy: '',
+    gpbBuy: '',
+    usdBuy: '',
+    bamBuy: '',
+    eurBuy: '',
+    plnBuy: '',
+  });
+
+  useEffect(() => {
+    axios
+      .get(`https://thingproxy.freeboard.io/fetch/https://api.hnb.hr/tecajn/v1`)
+      .then((res) => {
+        setCurrencyList(res.data);
+        setCurrency({
+          audBuy: res.data[0]['Kupovni za devize'],
+          cadBuy: res.data[1]['Kupovni za devize'],
+          czkBuy: res.data[2]['Kupovni za devize'],
+          dkkBuy: res.data[3]['Kupovni za devize'],
+          hufBuy: res.data[4]['Kupovni za devize'],
+          jpyBuy: res.data[5]['Kupovni za devize'],
+          nokBuy: res.data[6]['Kupovni za devize'],
+          sekBuy: res.data[7]['Kupovni za devize'],
+          chfBuy: res.data[8]['Kupovni za devize'],
+          gpbBuy: res.data[9]['Kupovni za devize'],
+          usdBuy: res.data[10]['Kupovni za devize'],
+          bamBuy: res.data[11]['Kupovni za devize'],
+          eurBuy: res.data[12]['Kupovni za devize'],
+          plnBuy: res.data[13]['Kupovni za devize'],
+        });
+      });
+
+    const gotData = (data: any) => {
+      let bank = data.val();
+      setDataBaseKey(Object.keys(bank)[0]);
+      setDataBaseData(bank[Object.keys(bank)[0]]);
+    };
+
+    const errData = (err: any) => {
+      console.log(err);
+    };
+    const database = fire.database();
+    totalRef.on('value', gotData, errData);
+  }, []);
+
+  const changeTotal = (
+    chosenCurrency: string,
+    value: string,
+    result: string
+  ) => {
+    const currencyForUpdate = chosenCurrency.slice(0, 3).toUpperCase();
+    const dataFromServer: any = dataBaseData;
+    const oldValue: any = dataFromServer[currencyForUpdate];
+    const updatedValue = Number(oldValue) + Number(value);
+    const hrkFromServer = dataFromServer['HRK'];
+    const updatedHrk = Number(hrkFromServer) - Number(result);
+
+    const baseRef = fire.database().ref('total').child(dataBaseKey);
+    baseRef.update({
+      [currencyForUpdate]: updatedValue,
+      HRK: updatedHrk.toFixed(2),
+    });
+  };
+
   return (
     <div className="BuySection">
-      <div className="BuySection-currencyList">
-        <h2>Select currency</h2>
-        <div>
-          <img src={eu} alt="AustralianDolar" />
-          <img src={switzerland} alt="AustralianDolar" />
-          <img src={uk} alt="AustralianDolar" />
-          <img src={usd} alt="AustralianDolar" />
-          <img src={australia} alt="AustralianDolar" />
-          <img src={canada} alt="CanadianDolar" />
-          <img src={norway} alt="AustralianDolar" />
-        </div>
-        <div>
-          <img src={sweden} alt="AustralianDolar" />
-          <img src={hungarian} alt="AustralianDolar" />
-          <img src={japan} alt="AustralianDolar" />
-          <img src={danish} alt="AustralianDolar" />
-          <img src={czech} alt="AustralianDolar" />
-          <img src={bosnia} alt="AustralianDolar" />
-          <img src={poland} alt="AustralianDolar" />
-        </div>
+      <div className="BuySection-transaction">
+        <TransactionBox changeTotal={changeTotal} currency={currency} />
       </div>
-      <div className="BuySection-amount">
-        <h2>Set Amount</h2>
-        <input type="text" />
-        <button>Buy</button>
+      <div className="BuySection-total">
+        <Total total={dataBaseData} />
+        <Counter />
       </div>
-      <div className="BuySection-output">
-        <p>Ringe ringe raja</p>
+      <div className="BuySection-list">
+        <CurrencyList currencyList={currencyList} />
       </div>
     </div>
   );
