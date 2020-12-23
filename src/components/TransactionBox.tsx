@@ -18,9 +18,10 @@ import './TransactionBox.scss';
 interface Props {
   changeTotal: (chosenCurrency: string, value: string, result: string) => void;
   currency: any;
+  method: string;
 }
 
-const TransactionBox: React.FC<Props> = ({ changeTotal, currency }) => {
+const TransactionBox: React.FC<Props> = ({ changeTotal, currency, method }) => {
   const [currencyForExchange, setCurrencyForExchange] = useState('');
   const [amountForPay, setAmountForPay] = useState('0');
   const amount: any = useRef();
@@ -44,43 +45,43 @@ const TransactionBox: React.FC<Props> = ({ changeTotal, currency }) => {
       <div>
         <button
           className="TransactionBox-btn"
-          onClick={() => setCurrencyForExchange('eurBuy')}
+          onClick={() => setCurrencyForExchange('eur')}
         >
           <img src={eu} alt="Euro" />
         </button>
         <button
           className="TransactionBox-btn"
-          onClick={() => setCurrencyForExchange('chfBuy')}
+          onClick={() => setCurrencyForExchange('chf')}
         >
           <img src={switzerland} alt="Switzerland" />
         </button>
         <button
           className="TransactionBox-btn"
-          onClick={() => setCurrencyForExchange('gpbBuy')}
+          onClick={() => setCurrencyForExchange('gpb')}
         >
           <img src={uk} alt="UnitedKingdom" />
         </button>
         <button
           className="TransactionBox-btn"
-          onClick={() => setCurrencyForExchange('usdBuy')}
+          onClick={() => setCurrencyForExchange('usd')}
         >
           <img src={usd} alt="America" />
         </button>
         <button
           className="TransactionBox-btn"
-          onClick={() => setCurrencyForExchange('audBuy')}
+          onClick={() => setCurrencyForExchange('aud')}
         >
           <img src={australia} alt="Australia" />
         </button>
         <button
           className="TransactionBox-btn"
-          onClick={() => setCurrencyForExchange('cadBuy')}
+          onClick={() => setCurrencyForExchange('cad')}
         >
           <img src={canada} alt="Canada" />
         </button>
         <button
           className="TransactionBox-btn"
-          onClick={() => setCurrencyForExchange('nokBuy')}
+          onClick={() => setCurrencyForExchange('nok')}
         >
           <img src={norway} alt="Norway" />
         </button>
@@ -88,49 +89,49 @@ const TransactionBox: React.FC<Props> = ({ changeTotal, currency }) => {
       <div>
         <button
           className="TransactionBox-btn"
-          onClick={() => setCurrencyForExchange('sekBuy')}
+          onClick={() => setCurrencyForExchange('sek')}
         >
           <img src={sweden} alt="Sweden" />
         </button>
         <button
           className="TransactionBox-btn"
-          onClick={() => setCurrencyForExchange('hufBuy')}
+          onClick={() => setCurrencyForExchange('huf')}
         >
           <img src={hungarian} alt="Hungarian" />
         </button>
         <button
           className="TransactionBox-btn"
-          onClick={() => setCurrencyForExchange('jpyBuy')}
+          onClick={() => setCurrencyForExchange('jpy')}
         >
           <img src={japan} alt="Japan" />
         </button>
         <button
           className="TransactionBox-btn"
-          onClick={() => setCurrencyForExchange('dkkBuy')}
+          onClick={() => setCurrencyForExchange('dkk')}
         >
           <img src={danish} alt="Danish" />
         </button>
         <button
           className="TransactionBox-btn"
-          onClick={() => setCurrencyForExchange('czkBuy')}
+          onClick={() => setCurrencyForExchange('czk')}
         >
           <img src={czech} alt="Czech" />
         </button>
         <button
           className="TransactionBox-btn"
-          onClick={() => setCurrencyForExchange('bamBuy')}
+          onClick={() => setCurrencyForExchange('bam')}
         >
           <img src={bosnia} alt="Bosnia" />
         </button>
         <button
           className="TransactionBox-btn"
-          onClick={() => setCurrencyForExchange('plmBuy')}
+          onClick={() => setCurrencyForExchange('plm')}
         >
           <img src={poland} alt="Poland" />
         </button>
       </div>
       <div className="TransactionBox-output">
-        <button onClick={() => exchange()}>Buy</button>
+        <button onClick={() => exchange()}>{method}</button>
         <p>To pay off: {amountForPay} kn</p>
       </div>
     </div>

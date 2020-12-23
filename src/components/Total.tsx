@@ -15,6 +15,7 @@ const Total: React.FC<Props> = ({ total }) => {
     let forRender = [];
     const keys: any = Object.keys(serverData);
     for (let i = 0; i < keys.length; i++) {
+      // .replace(/(?<!\..*)(\d)(?=(?:\d{3})+(?:\.|$))/g, '$1,')
       forRender.push(
         <p>
           {keys[i]} : {serverData[keys[i]]}

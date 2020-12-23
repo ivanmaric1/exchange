@@ -5,7 +5,7 @@ import Counter from './Counter';
 import TransactionBox from './TransactionBox';
 import axios from 'axios';
 import fire from './fire';
-import './BuySection.scss';
+import './BuySellSection.scss';
 
 const BuySection = () => {
   const totalRef = fire.database().ref('/total');
@@ -13,20 +13,20 @@ const BuySection = () => {
   const [dataBaseData, setDataBaseData] = useState('');
   const [currencyList, setCurrencyList] = useState('');
   const [currency, setCurrency] = useState({
-    audBuy: '',
-    cadBuy: '',
-    czkBuy: '',
-    dkkBuy: '',
-    hufBuy: '',
-    jpyBuy: '',
-    nokBuy: '',
-    sekBuy: '',
-    chfBuy: '',
-    gpbBuy: '',
-    usdBuy: '',
-    bamBuy: '',
-    eurBuy: '',
-    plnBuy: '',
+    aud: '',
+    cad: '',
+    czk: '',
+    dkk: '',
+    huf: '',
+    jpy: '',
+    nok: '',
+    sek: '',
+    chf: '',
+    gpb: '',
+    usd: '',
+    bam: '',
+    eur: '',
+    pln: '',
   });
 
   useEffect(() => {
@@ -35,20 +35,20 @@ const BuySection = () => {
       .then((res) => {
         setCurrencyList(res.data);
         setCurrency({
-          audBuy: res.data[0]['Kupovni za devize'],
-          cadBuy: res.data[1]['Kupovni za devize'],
-          czkBuy: res.data[2]['Kupovni za devize'],
-          dkkBuy: res.data[3]['Kupovni za devize'],
-          hufBuy: res.data[4]['Kupovni za devize'],
-          jpyBuy: res.data[5]['Kupovni za devize'],
-          nokBuy: res.data[6]['Kupovni za devize'],
-          sekBuy: res.data[7]['Kupovni za devize'],
-          chfBuy: res.data[8]['Kupovni za devize'],
-          gpbBuy: res.data[9]['Kupovni za devize'],
-          usdBuy: res.data[10]['Kupovni za devize'],
-          bamBuy: res.data[11]['Kupovni za devize'],
-          eurBuy: res.data[12]['Kupovni za devize'],
-          plnBuy: res.data[13]['Kupovni za devize'],
+          aud: res.data[0]['Kupovni za devize'],
+          cad: res.data[1]['Kupovni za devize'],
+          czk: res.data[2]['Kupovni za devize'],
+          dkk: res.data[3]['Kupovni za devize'],
+          huf: res.data[4]['Kupovni za devize'],
+          jpy: res.data[5]['Kupovni za devize'],
+          nok: res.data[6]['Kupovni za devize'],
+          sek: res.data[7]['Kupovni za devize'],
+          chf: res.data[8]['Kupovni za devize'],
+          gpb: res.data[9]['Kupovni za devize'],
+          usd: res.data[10]['Kupovni za devize'],
+          bam: res.data[11]['Kupovni za devize'],
+          eur: res.data[12]['Kupovni za devize'],
+          pln: res.data[13]['Kupovni za devize'],
         });
       });
 
@@ -70,24 +70,43 @@ const BuySection = () => {
     value: string,
     result: string
   ) => {
-    const currencyForUpdate = chosenCurrency.slice(0, 3).toUpperCase();
+    const currencyForUpdate = chosenCurrency.toUpperCase();
     const dataFromServer: any = dataBaseData;
     const oldValue: any = dataFromServer[currencyForUpdate];
     const updatedValue = Number(oldValue) + Number(value);
     const hrkFromServer = dataFromServer['HRK'];
     const updatedHrk = Number(hrkFromServer) - Number(result);
+    const time = new Date();
+    const date = time.toString().split(' ').splice(1, 3).join(' ');
+    const hours = time.getHours();
+    const minutes = time.getMinutes();
 
     const baseRef = fire.database().ref('total').child(dataBaseKey);
     baseRef.update({
       [currencyForUpdate]: updatedValue,
       HRK: updatedHrk.toFixed(2),
     });
+
+    const historyRef = fire.database().ref('history');
+    let newTransaction = historyRef.push();
+    newTransaction.set({
+      method: 'buy',
+      currency: currencyForUpdate,
+      amount: value,
+      payed: result,
+      date: date,
+      time: `${hours}:${minutes}`,
+    });
   };
 
   return (
     <div className="BuySection">
       <div className="BuySection-transaction">
-        <TransactionBox changeTotal={changeTotal} currency={currency} />
+        <TransactionBox
+          changeTotal={changeTotal}
+          currency={currency}
+          method={'Buy'}
+        />
       </div>
       <div className="BuySection-total">
         <Total total={dataBaseData} />
