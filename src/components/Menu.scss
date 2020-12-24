@@ -2,6 +2,7 @@
   box-sizing: border-box;
   background-color: #fff;
   width: 70%;
+  height: 12%;
   margin: 0 auto;
   padding: 0 2rem;
   border-bottom-left-radius: 30px;
@@ -30,9 +31,13 @@
       a {
         text-decoration: none;
         color: var(--grey-letter);
+        transition: all 0.4s;
 
         &.active {
-          color: red;
+          border-radius: 30px;
+          padding: 0.5rem;
+          background-color: var(--main-pink);
+          color: #fff;
         }
       }
 

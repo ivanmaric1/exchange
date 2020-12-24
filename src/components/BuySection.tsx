@@ -77,7 +77,9 @@ const BuySection = () => {
     const hrkFromServer = dataFromServer['HRK'];
     const updatedHrk = Number(hrkFromServer) - Number(result);
     const time = new Date();
-    const date = time.toString().split(' ').splice(1, 3).join(' ');
+    const year = time.getFullYear();
+    const month = time.getMonth() + 1;
+    const date = time.getDate();
     const hours = time.getHours();
     const minutes = time.getMinutes();
 
@@ -94,7 +96,7 @@ const BuySection = () => {
       currency: currencyForUpdate,
       amount: value,
       payed: result,
-      date: date,
+      date: `${year}-${month}-${date}`,
       time: `${hours}:${minutes}`,
     });
   };

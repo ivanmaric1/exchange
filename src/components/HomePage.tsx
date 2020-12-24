@@ -13,13 +13,15 @@ const HomePage = () => {
     <div className="HomePage">
       <div className="HomePage-container">
         <Menu />
-        <Switch>
-          <Route exact path="/" component={HomeSection} />
-          <Route path="/buy" component={BuySection} />
-          <Route path="/sell" component={SellSection} />
-          <Route path="/transactions" component={TransactionsSection} />
-          <Route path="/options" component={OptionsSection} />
-        </Switch>
+        <div className="HomePage-container-content">
+          <Switch>
+            <Route exact path="/" component={HomeSection} />
+            <Route path="/buy" component={BuySection} />
+            <Route path="/sell" component={SellSection} />
+            <Route path="/transactions" component={TransactionsSection} />
+            <Route path="/options" component={OptionsSection} />
+          </Switch>
+        </div>
       </div>
     </div>
   );

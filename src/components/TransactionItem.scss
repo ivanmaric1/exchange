@@ -1,0 +1,12 @@
+.TransactionItem {
+  font-size: 1.2rem;
+  tr {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+
+    td {
+      width: 150px;
+    }
+  }
+}

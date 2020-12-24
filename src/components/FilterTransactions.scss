@@ -1,3 +1,35 @@
 .FilterTransactions {
   background-color: #fff;
+  height: 60px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  border-radius: 30px;
+  font-size: 1.2rem;
+
+  input,
+  select {
+    font-family: var(--main-font);
+    font-size: 1.2rem;
+    border: 1px solid var(--main-pink);
+    cursor: pointer;
+    border-radius: 30px;
+    padding: 0.2rem;
+
+    &:active,
+    &:focus {
+      outline: none;
+      background-color: var(--main-pink);
+    }
+  }
+
+  input[type='date'] {
+    margin: 0 0.5rem;
+  }
+
+  label {
+    font-family: var(--main-font);
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
 }

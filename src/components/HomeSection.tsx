@@ -5,13 +5,17 @@ const HomeSection = () => {
   return (
     <div className="HomeSection">
       <div className="HomeSection-description">
-        <p>If you want to buy foreign currency, click on buy!</p>
-        <p>If you want to sell foreign currency, click on sell!</p>
-        <p>The transaction menu shows the history of completed transactions.</p>
-        <p>
-          In the options menu it is possible to deposit and withdraw money to
-          the cashier.
-        </p>
+        <div>
+          <p>If you want to buy foreign currency, click on buy!</p>
+          <p>If you want to sell foreign currency, click on sell!</p>
+          <p>
+            The transaction menu shows the history of completed transactions.
+          </p>
+          <p>
+            In the options menu it is possible to deposit and withdraw money to
+            the cashier.
+          </p>
+        </div>
         <div className="HomeSection-support">
           <div className="HomeSection-support-left">
             <h3>Support for users:</h3>
