@@ -18,9 +18,9 @@ const Currency: React.FC<Props> = ({
 }) => {
   return (
     <ul className="Currency">
-      <li>{država}</li>
-      <li>{valuta}</li>
-      <li>{jedinica}</li>
+      <li className="big">{država}</li>
+      <li className="small">{valuta}</li>
+      <li className="small">{jedinica}</li>
       <li>{kupovni}</li>
       <li>{prodajni}</li>
     </ul>

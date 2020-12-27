@@ -2,6 +2,8 @@
   border: 5px solid #fff;
   border-radius: 30px;
   padding: 1rem;
+  font-family: var(--main-font);
+  height: auto;
 
   &-container {
     height: 100%;
@@ -10,8 +12,24 @@
     align-items: center;
   }
 
-  h4 {
+  h3 {
     text-align: center;
     margin-top: 0;
+    color: #fff;
+  }
+
+  ul {
+    padding-left: 0;
+    font-size: 1.1rem;
+    line-height: 1.6;
+
+    li {
+      text-align: center;
+
+      &.legend {
+        font-weight: 800;
+        font-size: 0.9rem;
+      }
+    }
   }
 }

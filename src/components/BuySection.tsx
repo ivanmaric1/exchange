@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import CurrencyList from './CurrencyList';
 import Total from './Total';
-import Counter from './Counter';
 import TransactionBox from './TransactionBox';
 import axios from 'axios';
 import fire from './fire';
@@ -104,15 +103,12 @@ const BuySection = () => {
   return (
     <div className="BuySection">
       <div className="BuySection-transaction">
+        <Total total={dataBaseData} />
         <TransactionBox
           changeTotal={changeTotal}
           currency={currency}
           method={'Buy'}
         />
-      </div>
-      <div className="BuySection-total">
-        <Total total={dataBaseData} />
-        <Counter />
       </div>
       <div className="BuySection-list">
         <CurrencyList currencyList={currencyList} />

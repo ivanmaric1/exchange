@@ -1,20 +1,20 @@
 .BuySection,
 .SellSection {
-  padding: 2rem;
+  padding-top: 1rem;
   display: flex;
-  align-items: center;
   justify-content: space-evenly;
 
   &-transaction {
-    flex: 3;
-  }
-
-  &-total {
     flex: 1;
-    padding: 0 1rem;
+    padding: 0 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
   }
 
   &-list {
-    flex: 2;
+    flex: 1;
+    padding: 0 0.5rem;
   }
 }

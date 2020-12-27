@@ -27,21 +27,20 @@ const TransactionBox: React.FC<Props> = ({ changeTotal, currency, method }) => {
   const amount: any = useRef();
 
   const exchange = () => {
-    const chosenCurrency = currency[currencyForExchange].replace(/,/g, '.');
-    const value = amount.current.value;
-    const result = (Number(chosenCurrency) * Number(value)).toFixed(2);
-    setAmountForPay(result);
-    changeTotal(currencyForExchange, value, result);
-    return result;
+    if (currency[currencyForExchange]) {
+      const chosenCurrency = currency[currencyForExchange].replace(/,/g, '.');
+      const value = amount.current.value;
+      const result = (Number(chosenCurrency) * Number(value)).toFixed(2);
+      setAmountForPay(result);
+      changeTotal(currencyForExchange, value, result);
+      amount.current.value = '';
+      return result;
+    }
   };
 
   return (
     <div className="TransactionBox">
-      <div className="TransactionBox-amount">
-        <h2>Set Amount</h2>
-        <input type="text" ref={amount} />
-      </div>
-      <h2>Select currency</h2>
+      <h3>SELECT CURRENCY</h3>
       <div>
         <button
           className="TransactionBox-btn"
@@ -130,9 +129,12 @@ const TransactionBox: React.FC<Props> = ({ changeTotal, currency, method }) => {
           <img src={poland} alt="Poland" />
         </button>
       </div>
-      <div className="TransactionBox-output">
+      <div className="TransactionBox-amount">
+        <input type="text" ref={amount} placeholder="Set Amount" />
         <button onClick={() => exchange()}>{method}</button>
-        <p>To pay off: {amountForPay} kn</p>
+      </div>
+      <div className="TransactionBox-output">
+        <p>TO PAY OFF: {amountForPay} kn</p>
       </div>
     </div>
   );

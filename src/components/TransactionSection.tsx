@@ -1,6 +1,7 @@
 import React, { Component, useEffect, useState } from 'react';
 import FilterTransactions from './FilterTransactions';
 import TransactionItem from './TransactionItem';
+import Loader from './Loader';
 import fire from './fire';
 import './TransactionSection.scss';
 
@@ -119,7 +120,7 @@ const Statistics = () => {
   };
 
   return (
-    <div className="TransactionSection">
+    <div className="TransactionSection" data-simplebar>
       <FilterTransactions
         setFilterSort={setFilterSort}
         setFilterAmount={setFilterAmount}
@@ -128,7 +129,15 @@ const Statistics = () => {
         setFilterStartDate={setFilterStartDate}
         setFilterEndDate={setFilterEndDate}
       />
-      <table className="TransactionSection-table">{renderTransactions()}</table>
+      <table className="TransactionSection-table">
+        {history ? (
+          renderTransactions()
+        ) : (
+          <div className="TransactionSection-loader">
+            <Loader />
+          </div>
+        )}
+      </table>
     </div>
   );
 };

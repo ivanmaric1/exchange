@@ -1,7 +1,29 @@
 .TransactionSection {
   padding: 2rem;
+  overflow: auto;
+  height: 100%;
 
   &-table {
     width: 100%;
   }
+
+  &-loader {
+    margin-top: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.simplebar-track.simplebar-vertical .simplebar-scrollbar:before {
+  background: var(--main-pink);
+}
+
+.simplebar-scrollbar.simplebar-visible:before {
+  opacity: 0.8;
+  transition: opacity 0s linear;
+}
+
+.simplebar-track.simplebar-vertical {
+  width: 14px;
 }

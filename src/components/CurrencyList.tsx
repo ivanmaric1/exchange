@@ -22,17 +22,17 @@ const CurrencyList: React.FC<Props> = ({ currencyList }) => {
         </div>
       ) : (
         <>
-          <h4>
-            Tečajna lista
-            {loadedData ? currencyList[0]['Datum primjene'] : null}
-          </h4>
+          <h3>
+            CURRENCY LIST -
+            {loadedData ? currencyList[0]['Datum primjene'] : null}-
+          </h3>
 
           <ul className="Currency">
-            <li>Država</li>
-            <li>Valuta</li>
-            <li>Jedinica</li>
-            <li>Kupovni tečaj</li>
-            <li>Prodajni tečaj</li>
+            <li className="big legend">COUNTRY</li>
+            <li className="legend">CURRENCY</li>
+            <li className="small legend">UNIT</li>
+            <li className="legend">BUY CURRENCY</li>
+            <li className="legend">SELL CURRENCY</li>
           </ul>
 
           {currencyList

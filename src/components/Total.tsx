@@ -27,7 +27,7 @@ const Total: React.FC<Props> = ({ total }) => {
 
   return (
     <div className="Total">
-      <h3>Total</h3>
+      <h3>TOTAL</h3>
       <div className="Total-data">{renderServerTotal()}</div>
     </div>
   );
