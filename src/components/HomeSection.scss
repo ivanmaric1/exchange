@@ -37,3 +37,43 @@
     }
   }
 }
+
+
+
+@media screen and (min-width: 400px) and (max-width: 780px) {
+ .HomeSection {  
+    width: 90%;
+
+  &-description {
+    font-size: .9rem;
+  }
+
+  &-support {
+     font-size: .9rem;
+    img {
+      height: 70px;
+    }
+  }
+}
+}
+
+@media screen and (min-width: 780px) and (max-width: 1400px) {
+ .HomeSection {  
+    width: 90%;
+
+  &-description {
+    font-size: 1.1rem;
+  }
+
+  &-support {
+     font-size: 1.1rem;
+    img {
+      height: 85px;
+    }
+  }
+}
+}
+
+
+
+

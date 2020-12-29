@@ -47,6 +47,7 @@ const Statistics = () => {
 
   const renderTransactions = () => {
     let forRender: any[] = [];
+
     history?.map((item) =>
       forRender.push(
         <TransactionItem

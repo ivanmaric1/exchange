@@ -55,22 +55,21 @@ const FilterTransactions: React.FC<Props> = ({
         </option>
         <option value="OLDEST">FROM THE OLDEST</option>
       </select>
-      <div>
-        <label>
-          FROM
-          <input
-            type="date"
-            onChange={(e: any) => setFilterStartDate(e.target.value)}
-          />
-        </label>
-        <label>
-          TO
-          <input
-            type="date"
-            onChange={(e: any) => setFilterEndDate(e.target.value)}
-          />
-        </label>
-      </div>
+
+      <label>
+        FROM
+        <input
+          type="date"
+          onChange={(e: any) => setFilterStartDate(e.target.value)}
+        />
+      </label>
+      <label>
+        TO
+        <input
+          type="date"
+          onChange={(e: any) => setFilterEndDate(e.target.value)}
+        />
+      </label>
     </div>
   );
 };

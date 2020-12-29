@@ -12,7 +12,6 @@
       width: 90%;
       margin: auto;
       display: flex;
-      justify-content: center;
       justify-content: space-between;
     }
   }
@@ -56,3 +55,38 @@
     }
   }
 }
+
+
+@media screen and (min-width: 400px) and (max-width: 1000px) {
+.OptionsSection {
+  padding: 1rem;
+  font-size: 1rem;
+
+  &-option {
+    border: 2px solid #fff;
+    padding: 0.2rem 1rem;
+  
+    &-box {
+           justify-content: space-between;
+
+          div{
+            display: flex;
+          }
+    }
+  }
+
+
+    &-btn {
+      padding: 0.5rem;
+      font-size: 1rem;
+    }
+
+    input {
+      padding: 0.3rem 1rem;
+      font-size: 1rem;
+      border: 2px solid var(--main-pink);
+      width: 50%;
+    }
+  }
+}
+

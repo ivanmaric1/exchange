@@ -20,3 +20,13 @@
     }
   }
 }
+
+@media screen and (min-width: 400px) and (max-width: 1000px) {
+  .HomePage {
+    &-container {
+      width: 85%;
+      height: 95%;
+      padding: 0 2rem;
+    }
+  }
+}

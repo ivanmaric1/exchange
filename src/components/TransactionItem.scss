@@ -11,3 +11,38 @@
     }
   }
 }
+
+@media screen and (min-width: 400px) and (max-width: 1000px) {
+  .TransactionItem {
+    font-size: 0.9rem;
+    border-bottom: 1px solid var(--grey-letter);
+    tr {
+      td {
+        width: auto;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1000px) and (max-width: 1300px) {
+  .TransactionItem {
+    font-size: 1rem;
+    border-bottom: 1px solid var(--grey-letter);
+    tr {
+      td {
+        width: auto;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1300px) and (max-width: 1600px) {
+  .TransactionItem {
+    font-size: 1rem;
+    tr {
+      td {
+        width: auto;
+      }
+    }
+  }
+}

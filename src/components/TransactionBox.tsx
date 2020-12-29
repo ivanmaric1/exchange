@@ -40,6 +40,10 @@ const TransactionBox: React.FC<Props> = ({ changeTotal, currency, method }) => {
 
   return (
     <div className="TransactionBox">
+      <div className="TransactionBox-amount">
+        <h3>SET AMOUNT</h3>
+        <input type="text" ref={amount} />
+      </div>
       <h3>SELECT CURRENCY</h3>
       <div>
         <button
@@ -129,9 +133,10 @@ const TransactionBox: React.FC<Props> = ({ changeTotal, currency, method }) => {
           <img src={poland} alt="Poland" />
         </button>
       </div>
-      <div className="TransactionBox-amount">
-        <input type="text" ref={amount} placeholder="Set Amount" />
-        <button onClick={() => exchange()}>{method}</button>
+      <div>
+        <button onClick={() => exchange()} className="TransactionBox-btn big">
+          {method}
+        </button>
       </div>
       <div className="TransactionBox-output">
         <p>TO PAY OFF: {amountForPay} kn</p>

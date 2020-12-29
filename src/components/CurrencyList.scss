@@ -33,3 +33,21 @@
     }
   }
 }
+
+@media screen and (min-width: 400px) and (max-width: 1000px) {
+  .CurrencyList {
+    ul {
+      font-size: 1rem;
+      line-height: 1.2;
+    }
+  }
+}
+
+@media screen and (min-width: 1000px) and (max-width: 1400px) {
+  .CurrencyList {
+    ul {
+      font-size: 1rem;
+      line-height: 1.3;
+    }
+  }
+}

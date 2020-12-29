@@ -24,3 +24,27 @@
     }
   }
 }
+
+@media screen and (min-width: 400px) and (max-width: 1000px) {
+  .Total {
+    border: 2px solid #fff;
+    padding: 0.5rem 0;
+    font-size: 0.8rem;
+
+    &-data {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+
+      p {
+        margin: 0.3rem 0.3rem;
+      }
+    }
+  }
+}
+@media screen and (min-width: 1000px) and (max-width: 1300px) {
+  .Total {
+    border: 2px solid #fff;
+    padding: 0.5rem 0;
+    font-size: 0.9rem;
+  }
+}

@@ -33,3 +33,52 @@
     cursor: pointer;
   }
 }
+
+@media screen and (min-width: 400px) and (max-width: 1600px) {
+  .FilterTransactions {
+    height: auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0.4rem;
+    input,
+    select {
+      font-size: 0.9rem;
+      margin: 0.1rem;
+    }
+
+    input[type='date'] {
+      margin: 0;
+    }
+
+    label {
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+  }
+}
+
+@media screen and (min-width: 1000px) and (max-width: 1600px) {
+  .FilterTransactions {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (min-width: 1600px) and (max-width: 2000px) {
+  .FilterTransactions {
+    padding: 0.4rem;
+    input,
+    select {
+      font-size: 1rem;
+      margin: 0.1rem;
+    }
+
+    input[type='date'] {
+      margin: 0;
+    }
+
+    label {
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+  }
+}
