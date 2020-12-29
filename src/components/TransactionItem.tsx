@@ -21,7 +21,11 @@ const TransactionItem: React.FC<Props> = ({
   return (
     <div className="TransactionItem">
       <tr>
-        <td>{method.toUpperCase() + 'ED'}</td>
+        <td>
+          {method !== 'NO HISTORY'
+            ? method.toUpperCase() + 'ED'
+            : method.toUpperCase()}
+        </td>
         <td>{amount}</td>
         <td>{currency}</td>
         <td>{payed}</td>

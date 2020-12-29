@@ -8,8 +8,10 @@ import './BuySellSection.scss';
 
 const BuySection = () => {
   const totalRef = fire.database().ref('/total');
+  const historyRef = fire.database().ref('/history');
   const [dataBaseKey, setDataBaseKey] = useState('');
   const [dataBaseData, setDataBaseData] = useState('');
+  const [hasData, setHasData] = useState(true);
   const [currencyList, setCurrencyList] = useState('');
   const [currency, setCurrency] = useState({
     aud: '',
@@ -62,6 +64,19 @@ const BuySection = () => {
     };
     const database = fire.database();
     totalRef.on('value', gotData, errData);
+
+    const gotHistory = (data: any) => {
+      const keys = Object.keys(data.val());
+      if (keys[0] === 'empty') {
+        setHasData(false);
+      }
+    };
+
+    const errHistory = (err: any) => {
+      console.log(err);
+    };
+    const history = fire.database();
+    historyRef.on('value', gotHistory, errHistory);
   }, []);
 
   const changeTotal = (
@@ -88,16 +103,28 @@ const BuySection = () => {
       HRK: updatedHrk.toFixed(2),
     });
 
-    const historyRef = fire.database().ref('history');
-    let newTransaction = historyRef.push();
-    newTransaction.set({
-      method: 'buy',
-      currency: currencyForUpdate,
-      amount: value,
-      payed: result,
-      date: `${year}-${month}-${date}`,
-      time: `${hours}:${minutes}`,
-    });
+    if (!hasData) {
+      historyRef.set({
+        first: {
+          method: 'buy',
+          currency: currencyForUpdate,
+          amount: value,
+          payed: result,
+          date: `${year}-${month}-${date}`,
+          time: `${hours}:${minutes}`,
+        },
+      });
+    } else {
+      let newTransaction = historyRef.push();
+      newTransaction.set({
+        method: 'buy',
+        currency: currencyForUpdate,
+        amount: value,
+        payed: result,
+        date: `${year}-${month}-${date}`,
+        time: `${hours}:${minutes}`,
+      });
+    }
   };
 
   return (

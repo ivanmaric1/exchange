@@ -1,0 +1,58 @@
+.OptionsSection {
+  padding: 2rem;
+  font-family: var(--main-font);
+
+  &-option {
+    border: 5px solid #fff;
+    border-radius: 30px;
+    margin-bottom: 2rem;
+    padding: 0.5rem 1rem;
+
+    &-box {
+      width: 90%;
+      margin: auto;
+      display: flex;
+      justify-content: center;
+      justify-content: space-between;
+    }
+  }
+
+  &-btn {
+    font-family: var(--main-font);
+    padding: 0.6rem 1.5rem;
+    font-size: 1.1rem;
+    border: 2px solid var(--main-pink);
+    background: transparent;
+    margin: 0.5rem;
+    cursor: pointer;
+    transition: all 0.3s;
+
+    &.danger {
+      background-color: var(--main-pink);
+    }
+
+    &:hover {
+      background-color: var(--main-pink);
+      color: #fff;
+    }
+
+    &:active,
+    &:focus {
+      outline: none;
+    }
+  }
+
+  input {
+    font-family: var(--main-font);
+    padding: 0.6rem 1.5rem;
+    font-size: 1.1rem;
+    border: 2px solid var(--main-pink);
+    background: transparent;
+    margin: 0.5rem;
+
+    &:active,
+    &:focus {
+      outline: none;
+    }
+  }
+}
