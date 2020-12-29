@@ -1,0 +1,9 @@
+{
+  "short_name": "React App",
+  "name": "Exchange Master 2.0",
+  "icons": [],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}

@@ -1,0 +1,31 @@
+{
+  "files": {
+    "main.css": "/exchange/static/css/main.2a7c49ad.chunk.css",
+    "main.js": "/exchange/static/js/main.6ec16945.chunk.js",
+    "main.js.map": "/exchange/static/js/main.6ec16945.chunk.js.map",
+    "runtime-main.js": "/exchange/static/js/runtime-main.519ef4f6.js",
+    "runtime-main.js.map": "/exchange/static/js/runtime-main.519ef4f6.js.map",
+    "static/js/2.6fd13a4a.chunk.js": "/exchange/static/js/2.6fd13a4a.chunk.js",
+    "static/js/2.6fd13a4a.chunk.js.map": "/exchange/static/js/2.6fd13a4a.chunk.js.map",
+    "index.html": "/exchange/index.html",
+    "static/css/main.2a7c49ad.chunk.css.map": "/exchange/static/css/main.2a7c49ad.chunk.css.map",
+    "static/js/2.6fd13a4a.chunk.js.LICENSE.txt": "/exchange/static/js/2.6fd13a4a.chunk.js.LICENSE.txt",
+    "static/media/Australia.736eab56.png": "/exchange/static/media/Australia.736eab56.png",
+    "static/media/Bosnia.6cb1d2f7.png": "/exchange/static/media/Bosnia.6cb1d2f7.png",
+    "static/media/Canada.aad15850.png": "/exchange/static/media/Canada.aad15850.png",
+    "static/media/Czech.2ba5573f.png": "/exchange/static/media/Czech.2ba5573f.png",
+    "static/media/Eu.966385d4.png": "/exchange/static/media/Eu.966385d4.png",
+    "static/media/Japan.b986aae6.png": "/exchange/static/media/Japan.b986aae6.png",
+    "static/media/Switzerland.afe03522.png": "/exchange/static/media/Switzerland.afe03522.png",
+    "static/media/Uk.3186d711.png": "/exchange/static/media/Uk.3186d711.png",
+    "static/media/Usd.83878fdc.png": "/exchange/static/media/Usd.83878fdc.png",
+    "static/media/logo.820f521d.png": "/exchange/static/media/logo.820f521d.png",
+    "static/media/tw.0c158301.png": "/exchange/static/media/tw.0c158301.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.519ef4f6.js",
+    "static/js/2.6fd13a4a.chunk.js",
+    "static/css/main.2a7c49ad.chunk.css",
+    "static/js/main.6ec16945.chunk.js"
+  ]
+}
