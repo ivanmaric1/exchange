@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/exchange/static/css/main.2a7c49ad.chunk.css",
-    "main.js": "/exchange/static/js/main.6ec16945.chunk.js",
-    "main.js.map": "/exchange/static/js/main.6ec16945.chunk.js.map",
+    "main.js": "/exchange/static/js/main.3951336a.chunk.js",
+    "main.js.map": "/exchange/static/js/main.3951336a.chunk.js.map",
     "runtime-main.js": "/exchange/static/js/runtime-main.519ef4f6.js",
     "runtime-main.js.map": "/exchange/static/js/runtime-main.519ef4f6.js.map",
-    "static/js/2.6fd13a4a.chunk.js": "/exchange/static/js/2.6fd13a4a.chunk.js",
-    "static/js/2.6fd13a4a.chunk.js.map": "/exchange/static/js/2.6fd13a4a.chunk.js.map",
+    "static/js/2.c8c2de50.chunk.js": "/exchange/static/js/2.c8c2de50.chunk.js",
+    "static/js/2.c8c2de50.chunk.js.map": "/exchange/static/js/2.c8c2de50.chunk.js.map",
     "index.html": "/exchange/index.html",
     "static/css/main.2a7c49ad.chunk.css.map": "/exchange/static/css/main.2a7c49ad.chunk.css.map",
-    "static/js/2.6fd13a4a.chunk.js.LICENSE.txt": "/exchange/static/js/2.6fd13a4a.chunk.js.LICENSE.txt",
+    "static/js/2.c8c2de50.chunk.js.LICENSE.txt": "/exchange/static/js/2.c8c2de50.chunk.js.LICENSE.txt",
     "static/media/Australia.736eab56.png": "/exchange/static/media/Australia.736eab56.png",
     "static/media/Bosnia.6cb1d2f7.png": "/exchange/static/media/Bosnia.6cb1d2f7.png",
     "static/media/Canada.aad15850.png": "/exchange/static/media/Canada.aad15850.png",
@@ -24,8 +24,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.519ef4f6.js",
-    "static/js/2.6fd13a4a.chunk.js",
+    "static/js/2.c8c2de50.chunk.js",
     "static/css/main.2a7c49ad.chunk.css",
-    "static/js/main.6ec16945.chunk.js"
+    "static/js/main.3951336a.chunk.js"
   ]
 }
