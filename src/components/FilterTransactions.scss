@@ -34,6 +34,25 @@
   }
 }
 
+@media screen and (min-width: 200px) and (max-width: 400px) {
+  .FilterTransactions {
+    height: auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0.4rem;
+    input,
+    select {
+      font-size: 0.8rem;
+      margin: 0.3rem;
+    }
+
+    label {
+      font-size: 0.8rem;
+      cursor: pointer;
+    }
+  }
+}
+
 @media screen and (min-width: 400px) and (max-width: 1600px) {
   .FilterTransactions {
     height: auto;
@@ -43,11 +62,11 @@
     input,
     select {
       font-size: 0.9rem;
-      margin: 0.1rem;
+      margin: 0.3rem;
     }
 
     input[type='date'] {
-      margin: 0;
+      margin: 0.3rem;
     }
 
     label {

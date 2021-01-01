@@ -19,9 +19,13 @@
   }
 }
 
-@media screen and (min-width: 400px) and (max-width: 1400px) {
+@media screen and (min-width: 200px) and (max-width: 1400px) {
   .BuySection,
   .SellSection {
     flex-direction: column;
+
+    &-transaction {
+      padding: 0;
+    }
   }
 }

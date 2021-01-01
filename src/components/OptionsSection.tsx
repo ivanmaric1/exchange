@@ -66,7 +66,7 @@ const Options = () => {
       USD: 0,
       BAM: 0,
       EUR: 0,
-      PLM: 0,
+      PLN: 0,
     });
   };
 
@@ -87,7 +87,7 @@ const Options = () => {
       USD: 0,
       BAM: 0,
       EUR: 0,
-      PLM: 0,
+      PLN: 0,
     });
   };
 

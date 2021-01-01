@@ -48,12 +48,12 @@
   }
 }
 
-@media screen and (min-width: 400px) and (max-width: 1000px) {
+@media screen and (min-width: 200px) and (max-width: 1000px) {
   .Menu {
     width: 95%;
     height: 17%;
     margin: 0 auto;
-    font-size: 1rem;
+    font-size: 1.2rem;
     justify-content: space-evenly;
 
     &-logo {
@@ -65,32 +65,6 @@
 
       li {
         margin: 0.2rem;
-
-        a {
-          &.active {
-            padding: 0 0.2rem;
-          }
-        }
-      }
-    }
-  }
-}
-
-@media screen and (min-width: 1000px) and (max-width: 1400px) {
-  .Menu {
-    width: 95%;
-    height: 12%;
-    margin: 0 auto;
-    font-size: 1rem;
-    justify-content: space-evenly;
-
-    &-logo {
-      height: 70px;
-    }
-
-    ul {
-      li {
-        margin: 1.5rem;
 
         a {
           &.active {

@@ -128,7 +128,7 @@ const TransactionBox: React.FC<Props> = ({ changeTotal, currency, method }) => {
         </button>
         <button
           className="TransactionBox-btn"
-          onClick={() => setCurrencyForExchange('plm')}
+          onClick={() => setCurrencyForExchange('pln')}
         >
           <img src={poland} alt="Poland" />
         </button>
