@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/exchange/static/css/main.345faff6.chunk.css",
+    "main.css": "/exchange/static/css/main.8bd0d880.chunk.css",
     "main.js": "/exchange/static/js/main.4a6a572f.chunk.js",
     "main.js.map": "/exchange/static/js/main.4a6a572f.chunk.js.map",
     "runtime-main.js": "/exchange/static/js/runtime-main.519ef4f6.js",
@@ -8,7 +8,7 @@
     "static/js/2.17bb7944.chunk.js": "/exchange/static/js/2.17bb7944.chunk.js",
     "static/js/2.17bb7944.chunk.js.map": "/exchange/static/js/2.17bb7944.chunk.js.map",
     "index.html": "/exchange/index.html",
-    "static/css/main.345faff6.chunk.css.map": "/exchange/static/css/main.345faff6.chunk.css.map",
+    "static/css/main.8bd0d880.chunk.css.map": "/exchange/static/css/main.8bd0d880.chunk.css.map",
     "static/js/2.17bb7944.chunk.js.LICENSE.txt": "/exchange/static/js/2.17bb7944.chunk.js.LICENSE.txt",
     "static/media/Australia.736eab56.png": "/exchange/static/media/Australia.736eab56.png",
     "static/media/Bosnia.6cb1d2f7.png": "/exchange/static/media/Bosnia.6cb1d2f7.png",
@@ -25,7 +25,7 @@
   "entrypoints": [
     "static/js/runtime-main.519ef4f6.js",
     "static/js/2.17bb7944.chunk.js",
-    "static/css/main.345faff6.chunk.css",
+    "static/css/main.8bd0d880.chunk.css",
     "static/js/main.4a6a572f.chunk.js"
   ]
 }
