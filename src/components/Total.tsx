@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Loader from './Loader';
 import './Total.scss';
 
 interface Props {
@@ -17,7 +18,7 @@ const Total: React.FC<Props> = ({ total }) => {
     for (let i = 0; i < keys.length; i++) {
       // .replace(/(?<!\..*)(\d)(?=(?:\d{3})+(?:\.|$))/g, '$1,')
       forRender.push(
-        <p>
+        <p key={i}>
           {keys[i]} : {serverData[keys[i]]}
         </p>
       );
@@ -27,8 +28,14 @@ const Total: React.FC<Props> = ({ total }) => {
 
   return (
     <div className="Total">
-      <h3>TOTAL</h3>
-      <div className="Total-data">{renderServerTotal()}</div>
+      {!serverData ? (
+        <Loader />
+      ) : (
+        <>
+          <h3>TOTAL</h3>
+          <div className="Total-data">{renderServerTotal()}</div>
+        </>
+      )}
     </div>
   );
 };

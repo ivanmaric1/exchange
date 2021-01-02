@@ -18,10 +18,16 @@ import './TransactionBox.scss';
 interface Props {
   changeTotal: (chosenCurrency: string, value: string, result: string) => void;
   currency: any;
+  defaultCurrency: any;
   method: string;
 }
 
-const TransactionBox: React.FC<Props> = ({ changeTotal, currency, method }) => {
+const TransactionBox: React.FC<Props> = ({
+  changeTotal,
+  currency,
+  defaultCurrency,
+  method,
+}) => {
   const [currencyForExchange, setCurrencyForExchange] = useState('');
   const [amountForPay, setAmountForPay] = useState('0');
   const amount: any = useRef();
@@ -29,6 +35,17 @@ const TransactionBox: React.FC<Props> = ({ changeTotal, currency, method }) => {
   const exchange = () => {
     if (currency[currencyForExchange]) {
       const chosenCurrency = currency[currencyForExchange].replace(/,/g, '.');
+      const value = amount.current.value;
+      const result = (Number(chosenCurrency) * Number(value)).toFixed(2);
+      setAmountForPay(result);
+      changeTotal(currencyForExchange, value, result);
+      amount.current.value = '';
+      return result;
+    } else {
+      const chosenCurrency = defaultCurrency[currencyForExchange].replace(
+        /,/g,
+        '.'
+      );
       const value = amount.current.value;
       const result = (Number(chosenCurrency) * Number(value)).toFixed(2);
       setAmountForPay(result);

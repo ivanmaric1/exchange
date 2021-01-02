@@ -1,4 +1,3 @@
-import { Console } from 'console';
 import React from 'react';
 import './FilterTransactions.scss';
 
@@ -32,7 +31,7 @@ const FilterTransactions: React.FC<Props> = ({
         <option value="LOW">FROM LOWEST</option>
       </select>
       <select onChange={(e: any) => setFilterCurrency(e.target.value)}>
-        <option value="">ORDER BY CURRENCY</option>
+        <option value="none">ORDER BY CURRENCY</option>
         <option value="AUD">AUD</option>
         <option value="CAD">CAD</option>
         <option value="CZK">CZK</option>

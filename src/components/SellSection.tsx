@@ -8,8 +8,29 @@ import './BuySellSection.scss';
 
 const SellSection = () => {
   const totalRef = fire.database().ref('/total');
+  const historyRef = fire.database().ref('/history');
+  const defaultRef = fire.database().ref('/default');
   const [dataBaseKey, setDataBaseKey] = useState('');
   const [dataBaseData, setDataBaseData] = useState('');
+  const [defaultData, setDefaultData] = useState('');
+  const [defaultList, setDefaultList] = useState('');
+  const [defaultCurrency, setDefaultCurrency] = useState({
+    aud: '',
+    cad: '',
+    czk: '',
+    dkk: '',
+    huf: '',
+    jpy: '',
+    nok: '',
+    sek: '',
+    chf: '',
+    gpb: '',
+    usd: '',
+    bam: '',
+    eur: '',
+    pln: '',
+  });
+  const [hasData, setHasData] = useState(true);
   const [currencyList, setCurrencyList] = useState('');
   const [currency, setCurrency] = useState({
     aud: '',
@@ -62,6 +83,33 @@ const SellSection = () => {
     };
     const database = fire.database();
     totalRef.on('value', gotData, errData);
+
+    const gotDefault = (data: any) => {
+      const defaultValue = data.val();
+      setDefaultList(data.val().default);
+      setDefaultCurrency({
+        aud: defaultValue.default[0]['Kupovni za devize'],
+        cad: defaultValue.default[1]['Kupovni za devize'],
+        czk: defaultValue.default[2]['Kupovni za devize'],
+        dkk: defaultValue.default[3]['Kupovni za devize'],
+        huf: defaultValue.default[4]['Kupovni za devize'],
+        jpy: defaultValue.default[5]['Kupovni za devize'],
+        nok: defaultValue.default[6]['Kupovni za devize'],
+        sek: defaultValue.default[7]['Kupovni za devize'],
+        chf: defaultValue.default[8]['Kupovni za devize'],
+        gpb: defaultValue.default[9]['Kupovni za devize'],
+        usd: defaultValue.default[10]['Kupovni za devize'],
+        bam: defaultValue.default[11]['Kupovni za devize'],
+        eur: defaultValue.default[12]['Kupovni za devize'],
+        pln: defaultValue.default[13]['Kupovni za devize'],
+      });
+    };
+
+    const errDefault = (err: any) => {
+      console.log(err);
+    };
+
+    defaultRef.on('value', gotDefault, errDefault);
   }, []);
 
   const changeTotal = (
@@ -107,12 +155,13 @@ const SellSection = () => {
         <TransactionBox
           changeTotal={changeTotal}
           currency={currency}
+          defaultCurrency={defaultCurrency}
           method={'Sell'}
         />
       </div>
 
       <div className="SellSection-list">
-        <CurrencyList currencyList={currencyList} />
+        <CurrencyList currencyList={currencyList} defaultList={defaultList} />
       </div>
     </div>
   );

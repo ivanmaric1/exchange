@@ -57,6 +57,7 @@ const Statistics = () => {
           payed={item.payed}
           time={item.time}
           method={item.method}
+          key={item.date + item.time + item.amount + item.currency}
         />
       )
     );
